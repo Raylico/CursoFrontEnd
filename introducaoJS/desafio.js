@@ -26,6 +26,14 @@ for(let i = 0; i<=10 ; i++){
 
 //-------------------------desafio 3----------------------------------
 
+var prompt = require("prompt-sync")();
+for(let i ; i<20 ; i++){
+    //imprimir nº pares
+    let resto = (i%2);
+    if(resto == 0){
+        console.log(i);
+    }
+}
 
 
 
