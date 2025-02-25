@@ -13,7 +13,7 @@ console.log(Math.pow(4,3)); //4³ = 64
 console.log(Math.pow(27,1/3)); // ³√27 = 3
 
 //funções de arredondamento 
-console.log(Math.round(4.7));//5
+console.log(Math.round(4.7));//7
 console.log(Math.round(4.4));//4
 console.log(Math.ceil(4.1));//5
 console.log(Math.floor(4.9));//4
