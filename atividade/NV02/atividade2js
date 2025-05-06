@@ -1,0 +1,146 @@
+// ---------------------------------------------------------------------------------------------------------
+console.log("--------------Atividade 4--------------");
+
+class Aluno {
+    constructor(nome){
+        this.nome = nome;
+        this.notas = [];
+    }
+    adicionarNota(nota) {
+        if (typeof nota === 'number' && nota >= 0 && nota <= 10){
+            this.notas.push(nota);
+        } else {
+            console.log("Nota inválida! A nota deve ser um número entre 0 e 10.");
+        }
+    }
+
+    calcularMedia() {
+        if (this.notas.length === 0)  return 0;
+           
+        const soma = this.notas.reduce((acc, nota) => acc + nota, 0);
+        return soma / this.notas.length;
+    }
+
+    situacao() {
+        const media = this.calcularMedia();
+        if (media >= 7) {
+            return `Aprovado com média ${media.toFixed(2)}`;
+        } else {
+            return `Reprovado com média ${media.toFixed(2)}`;
+        }
+    }
+}
+
+const aluno1 = new Aluno("Marco Bobão");
+
+aluno1.adicionarNota(7);
+aluno1.adicionarNota(8);
+aluno1.adicionarNota(5);
+
+console.log(`Média do aluno ${aluno1.nome}:`, aluno1.calcularMedia());
+console.log(aluno1.situacao());
+
+const aluno2 = new Aluno("Mirella Bocó");
+
+aluno2.adicionarNota(9);
+aluno2.adicionarNota(8);
+aluno2.adicionarNota(10);
+
+console.log(`Média do aluno ${aluno2.nome}:`, aluno2.calcularMedia());
+console.log(aluno2.situacao());
+
+// ---------------------------------------------------------------------------------------------------------
+console.log("--------------Atividade 5--------------");
+
+class Produto {
+    constructor(nome, preco, quantidade){
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+
+    vender(qtd){
+        if (qtd <=0){
+            console.log("quantidade inválida.");
+            return;
+        }
+        if (qtd > this.quantidadee){
+            console.log(`Estoque insuficiente. Temos apenas ${this.quantidade} unidades.`);
+        } else {
+            this.quantidade -= qtd;
+            console.log(`Venda realizada! ${qtd} unidades de ${this.nome} vendidas.`);
+        }
+    }
+    repor(qtd){
+        if (qtd <=0){
+            console.log("quantidade inválida.");
+            return;
+        }
+
+        this.quantidade += qtd;
+        console.log(`Reposição realizada! ${qtd} unidades de ${this.nome} adicionadas ao estoque.`);
+    }
+
+
+//exibir informações do prouto 
+exibirInfo() {
+    console.log(`Produto: ${this.nome}`);
+    console.log(`Produto: ${this.preco.toFixed(2)}`);
+    console.log(`Produto: ${this.quantidade}`);
+    }
+}
+
+const produto1 = new Produto("Caneca", 49.99, 20);
+produto1.exibirInfo();
+produto1.vender(5);
+produto1.exibirInfo();
+produto1.repor(10);
+produto1.exibirInfo();
+
+// ---------------------------------------------------------------------------------------------------------
+console.log("--------------Atividade 6--------------");
+
+class ContaBancaria{
+    #titular
+    #saldo
+
+//não tem o saldo ainda porque inicialmente ele é 0
+    constructor(titular){
+    this.#titular = titular;
+    this.#saldo = 0;
+}
+//método para depositar dinheiro na conta
+depositar(valor){
+    if(valor > 0){
+        this.#saldo += valor;
+        console.log(`Deposito realizado com sucesso!`)
+    }else{
+        console.log(`Valor inválido para deposito!`)
+    }
+}
+sacar(valor){
+    if(valor > 0 && valor <= this.#saldo){
+        this.#saldo -= valor;
+        console.log(`Saque realizado com sucesso!`);
+        //if else encadeado 
+    }else if(valor > this.#saldo){
+        console.log(`Saldo insuficiente!`);
+    }else{
+        console.log(`Valor inválido para saque!`);
+        }
+    }
+
+    exibirSaldo(){
+        console.log(`Titular: ${this.#titular}, Saldo: R$ ${this.#saldo}`);
+    }
+}
+
+let conta1 = new ContaBancaria("Mirella");
+conta1.depositar(2500);
+conta1.exibirSaldo();
+conta1.sacar(500);
+conta1.exibirSaldo();
+conta1.sacar(2100);
+conta1.exibirSaldo();
+
+
