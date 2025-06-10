@@ -7,8 +7,8 @@ import { Vaga } from '../models/vaga.model';
   providedIn: 'root'
 })
 export class VagasService {
-  private apiUrl = "http://localhost:3000/vagas" //Endereço da Api
-
+  private apiUrl = "http://localhost:3003/vagas" //Endereço da Api
+  
   constructor(private http: HttpClient ) { }
 
   //criar os métodos para conexão com a ApiREST
@@ -19,8 +19,20 @@ export class VagasService {
   }
 
   //post
+  postVaga(vaga:Vaga): Observable<Vaga[]>{ //método para enviar os dados para a api
+    return this.http.post<Vaga[]>(this.apiUrl,vaga);
+    //Observable -> rxjs => tradutor de Json -> typescript
+  }
 
   //put
-
-  //delete
+  //nomeDoMétodo(parâmetro)
+  putVaga(id: any, vaga:Vaga): Observable<Vaga[]>{
+    const url =this.apiUrl+"/"+id; //construir a url join(apiUrl+id)
+    return this.http.put<Vaga[]>(url,vaga); 
+  }
+   //delete
+   deleteVaga(id:any): Observable<Vaga[]>{
+    const url = this.apiUrl+"/"+id;
+    return this.http.delete<Vaga[]>(url);
+   }
 }
