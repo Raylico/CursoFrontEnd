@@ -1,27 +1,38 @@
-//modelagem de curriculo
+// modelagem de curriculo
 export class Curriculo {
-    constructor(
-        private _id: number,
-        private _nome: string,
-        private _telefone: number,
-        private _email: string,
-        private _experiencia: string,
-        private _formacao: string,
-    ){}
+  // Ao declarar com 'public' no construtor, o TypeScript cria automaticamente
+  // as propriedades da classe com esses nomes e as torna públicas.
+  constructor(
+    public id: number,
+    public nome: string,
+    public telefone: number,
+    public email: string,
+    public experiencia: string,
+    public formacao: string
+  ) {}
 
-//métodos
-public get id(): number {
-    return this._id;
-}
-public set id(v: number): {
-    this._id = var;
-}
-public get nome(): string {
-    return this._nome;
-}
-public set nome(v: string): {
-    this._nome = value;
-}
+  // métodos de conversão de objetos
+  // Agora, em toMap, você pode referenciar as propriedades diretamente (sem '_')
+  public toMap(): { [key: string]: any } {
+    return {
+      id: this.id,
+      nome: this.nome,
+      telefone: this.telefone,
+      email: this.email,
+      experiencia: this.experiencia,
+      formacao: this.formacao,
+    };
+  }
 
-
+  // fromMap permanece igual, já que ele já espera os nomes sem '_' do 'map'
+  static fromMap(map: any): Curriculo {
+    return new Curriculo(
+      map.id,
+      map.nome,
+      map.telefone,
+      map.email,
+      map.experiencia,
+      map.formacao
+    );
+  }
 }

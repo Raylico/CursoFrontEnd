@@ -1,0 +1,78 @@
+<div class="painel-curriculos-container">
+  <h2>Cadastrar Currículo</h2>
+
+  <form class="curriculo-form" (ngSubmit)="cadastrarCurriculo()">
+      <div class="form-group">
+      <label for="id">ID:</label>
+      <input type="text" name="id" id="id" [(ngModel)]="curriculo.id" [disabled]="!isEditing" placeholder="ID do currículo">
+    </div>
+
+    <div class="form-group">
+      <label for="nome">Nome Completo:</label>
+      <input type="text" name="nome" id="nome" [(ngModel)]="curriculo.nome" required placeholder="Digite o nome completo">
+    </div>
+
+    <div class="form-group">
+      <label for="telefone">Telefone:</label>
+      <input type="tel" name="telefone" id="telefone" [(ngModel)]="curriculo.telefone" required placeholder="(99) 99999-9999">
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <input type="email" name="email" id="email" [(ngModel)]="curriculo.email" required placeholder="exemplo@email.com">
+    </div>
+
+    <div class="form-group">
+      <label for="experiencia">Experiência Profissional:</label>
+      <textarea name="experiencia" id="experiencia" [(ngModel)]="curriculo.experiencia" rows="4" placeholder="Descreva sua experiência profissional..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="formacao">Formação Acadêmica:</label>
+      <textarea name="formacao" id="formacao" [(ngModel)]="curriculo.formacao" rows="4" placeholder="Descreva sua formação acadêmica..."></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [attr.aria-label]="isEditing ? 'Atualizar Currículo' : 'Cadastrar Currículo'">
+        {{ isEditing ? 'Atualizar Currículo' : 'Cadastrar Currículo' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()" aria-label="Limpar Formulário">Limpar Formulário</button>
+    </div>
+  </form>
+
+  <hr>
+
+  <h2>Currículos Cadastrados</h2>
+  <section class="listar-curriculos">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>E-mail</th>
+          <th>Experiência</th>
+          <th>Formação</th>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="listaDeCurriculos.length === 0">
+          <td colspan="7" class="no-data-message">Nenhum currículo cadastrado.</td>
+        </tr>
+        <tr class="curriculos-row" *ngFor="let curriculo of listaDeCurriculos">
+          <td>{{curriculo.id}}</td>
+          <td>{{curriculo.nome}}</td>
+          <td>{{curriculo.telefone}}</td>
+          <td>{{curriculo.email}}</td>
+          <td>{{curriculo.experiencia}}</td>
+          <td>{{curriculo.formacao}}</td>
+          <td>
+            <button class="btn-small btn-edit" type="button" (click)="listarCurriculoPorId(curriculo)" aria-label="Editar currículo">Editar</button>            <button class="btn-small btn-delete" type="button" (click)="excluirCurriculo(curriculo.id)" aria-label="Excluir currículo">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="rodape"></div>
+</div>
