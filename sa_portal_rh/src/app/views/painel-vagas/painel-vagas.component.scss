@@ -1,17 +1,24 @@
-// Tema escuro moderno com verde
-$bg-dark: #ffffff;
+// Tema claro moderno com azul
+$bg-dark: #f9f9f9;
 $bg-card: #ffffff;
-$verde: #28a745;
-$verde-hover: darken($verde, 10%);
-$vermelho: #dc3545;
-$amarelo: #ffeb3b;
-$cinza: #999;
-$texto-claro: #f0f0f0;
+$azul: #3498db;
+$azul-hover: darken($azul, 10%);
+$vermelho: #e74c3c;
+$amarelo: #f1c40f;
+$cinza: #ccc;
+$texto-escuro: #333;
+
+body {
+  background-color: $bg-dark;
+  color: $texto-escuro;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
 
 h2 {
   text-align: center;
   padding: 20px;
-  color: $verde;
+  color: $azul;
   font-size: 2rem;
 }
 
@@ -21,12 +28,12 @@ form {
   padding: 2rem;
   border-radius: 10px;
   background-color: $bg-card;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 
   label {
     display: block;
     margin-bottom: 0.5rem;
-    color: $texto-claro;
+    color: $texto-escuro;
     font-size: 1rem;
   }
 
@@ -34,16 +41,16 @@ form {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    background-color: #2a2a2a;
+    background-color: #f0f0f0;
     border: 1px solid $cinza;
     border-radius: 6px;
-    color: $texto-claro;
+    color: $texto-escuro;
     font-size: 1rem;
 
     &:focus {
       outline: none;
-      border-color: $verde;
-      box-shadow: 0 0 6px rgba(40, 167, 69, 0.5);
+      border-color: $azul;
+      box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
     }
   }
 
@@ -59,10 +66,10 @@ form {
     transition: background-color 0.3s ease;
 
     &[type="button"]:nth-of-type(1) {
-      background-color: $verde;
+      background-color: $azul;
 
       &:hover {
-        background-color: $verde-hover;
+        background-color: $azul-hover;
       }
     }
 
@@ -93,7 +100,7 @@ section {
   padding: 1.5rem;
   background-color: $bg-card;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
 
   .table {
@@ -101,17 +108,17 @@ section {
     border-collapse: collapse;
     margin-top: 1.5rem;
     font-size: 0.9rem;
-    color: $texto-claro;
+    color: $texto-escuro;
 
     thead {
-      background-color: $verde;
+      background-color: $azul;
 
       th {
         padding: 12px;
         text-align: left;
         color: #fff;
         font-weight: bold;
-        border-bottom: 2px solid #1b1b1b;
+        border-bottom: 2px solid #ddd;
       }
     }
 
@@ -120,7 +127,7 @@ section {
         transition: background-color 0.3s;
 
         &:hover {
-          background-color: rgba(40, 167, 69, 0.1);
+          background-color: rgba(52, 152, 219, 0.1);
         }
 
         td {
@@ -129,7 +136,7 @@ section {
         }
 
         .btn-listar {
-          background-color: $verde;
+          background-color: $azul;
           color: #fff;
           padding: 6px 12px;
           border: none;
@@ -137,7 +144,7 @@ section {
           cursor: pointer;
 
           &:hover {
-            background-color: $verde-hover;
+            background-color: $azul-hover;
           }
         }
       }

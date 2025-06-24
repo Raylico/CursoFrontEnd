@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:"vagas",component: VagasComponent},
   {path:"curriculos",component: CurriculosComponent},
   {path:"painel-vagas", component: PainelVagasComponent},
-  {path:"painel-curriculos", component: PainelCurriculosComponent} // Corrigido para apontar para o componente correto
+  {path:"painel-curriculos", component: PainelCurriculosComponent} 
 
 ];
 

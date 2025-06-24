@@ -62,6 +62,14 @@ export class PainelCurriculosComponent {
     );
   }
 
+  salvarCurriculo(): void {
+    if (this.isEditing) {
+      this.atualizarCurriculo(this.curriculo.id);
+    } else {
+      this.cadastrarCurriculo();
+    }
+  }
+
   excluirCurriculo(id: any): void {
     this._curriculosService.deleteCurriculo(id).subscribe(
       () => {

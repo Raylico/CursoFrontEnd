@@ -29,5 +29,30 @@
       "salario": 8000
     }
   ],
-  "curriculos": []
+  "curriculos": [
+    {
+      "id": "1",
+      "nome": "raaaaaaa",
+      "telefone": "011111111",
+      "email": "ra",
+      "experiencia": "aaaaa",
+      "formacao": "aaaaaa"
+    },
+    {
+      "id": 0,
+      "nome": "",
+      "telefone": 0,
+      "email": "",
+      "experiencia": "",
+      "formacao": ""
+    },
+    {
+      "id": 0,
+      "nome": "",
+      "telefone": 0,
+      "email": "",
+      "experiencia": "",
+      "formacao": ""
+    }
+  ]
 }

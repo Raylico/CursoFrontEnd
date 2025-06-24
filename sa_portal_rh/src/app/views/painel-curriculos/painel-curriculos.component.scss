@@ -1,147 +1,191 @@
-// Paleta de cores
-$bg-dark: #121212;
-$bg-card: #1e1e1e;
-$green: #28a745;
-$green-dark: darken($green, 10%);
-$white: #f0f0f0;
-$gray: #999;
+// Tema claro moderno com azul
+$bg-dark: #f9f9f9;
+$bg-card: #ffffff;
+$azul: #3498db;
+$azul-hover: darken($azul, 10%);
+$vermelho: #e74c3c;
+$amarelo: #f1c40f;
+$cinza: #ccc;
+$texto-escuro: #333;
 
-// Título
+body {
+  background-color: $bg-dark;
+  color: $texto-escuro;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
 h2 {
   text-align: center;
-  padding: 1.5rem;
-  color: $green;
+  padding: 20px;
+  color: $azul;
   font-size: 2rem;
 }
 
-// Formulário
 form {
-  background-color: $bg-card;
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  background-color: $bg-card;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 
   label {
     display: block;
     margin-bottom: 0.5rem;
-    color: $white;
+    color: $texto-escuro;
     font-size: 1rem;
   }
 
   input {
     width: 100%;
-    padding: 0.8rem;
+    padding: 1rem;
     margin-bottom: 1.5rem;
-    background-color: transparent;
-    border: 1px solid $gray;
+    background-color: #f0f0f0;
+    border: 1px solid $cinza;
     border-radius: 6px;
-    color: $white;
+    color: $texto-escuro;
     font-size: 1rem;
 
     &:focus {
       outline: none;
-      border-color: $green;
-      box-shadow: 0 0 6px rgba(40, 167, 69, 0.7);
+      border-color: $azul;
+      box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
     }
   }
 
   button {
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
+    color: #000000;
     margin-right: 0.75rem;
     transition: background-color 0.3s ease;
-    color: $white;
 
-    &.btn-cadastrar {
-      background-color: $green;
+    &[type="button"]:nth-of-type(1) {
+      background-color: $azul;
 
       &:hover {
-        background-color: $green-dark;
+        background-color: $azul-hover;
       }
     }
 
-    &.btn-atualizar {
-      background-color: lighten($green, 10%);
+    &[type="button"]:nth-of-type(2) {
+      background-color: $amarelo;
+      color: #000;
 
       &:hover {
-        background-color: $green;
+        background-color: darken($amarelo, 10%);
       }
     }
 
-    &.btn-excluir {
-      background-color: #dc3545;
+    &[type="button"]:nth-of-type(3) {
+      background-color: $vermelho;
 
       &:hover {
-        background-color: darken(#dc3545, 10%);
+        background-color: darken($vermelho, 10%);
       }
     }
   }
 }
 
-// Tabela
+// Estilização da Tabela
+
 section {
   max-width: 1300px;
-  margin: 2rem auto;
-  padding: 1rem;
+  margin: 20px auto;
+  padding: 1.5rem;
   background-color: $bg-card;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
 
   .table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1.5rem;
-    font-size: 0.95rem;
-    color: $white;
+    font-size: 0.9rem;
+    color: $texto-escuro;
 
     thead {
-      background-color: $green-dark;
+      background-color: $azul;
 
       th {
         padding: 12px;
         text-align: left;
+        color: #fff;
         font-weight: bold;
-        border-bottom: 2px solid $green;
-        color: $white;
+        border-bottom: 2px solid #ddd;
       }
     }
 
     tbody {
       tr {
+        transition: background-color 0.3s;
+
         &:hover {
-          background-color: rgba(40, 167, 69, 0.1);
+          background-color: rgba(52, 152, 219, 0.1);
         }
 
         td {
           padding: 12px;
-          border-bottom: 1px solid $gray;
+          border-bottom: 1px solid $cinza;
         }
 
         .btn-listar {
-          background-color: $green-dark;
+          background-color: $azul;
+          color: #fff;
           padding: 6px 12px;
           border: none;
-          border-radius: 4px;
-          color: $white;
+          border-radius: 5px;
           cursor: pointer;
 
           &:hover {
-            background-color: $green;
+            background-color: $azul-hover;
           }
         }
+                .btn-edit {
+                  background-color: $azul;
+                  color: #fff;
+                  padding: 6px 16px;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-weight: 600;
+                  margin-right: 0.5rem;
+                  transition: background 0.2s, transform 0.1s;
+
+                  &:hover,
+                  &:focus {
+                    background-color: $azul-hover;
+                    transform: scale(1.05);
+                  }
+                }
+
+                .btn-delete {
+                  background-color: $vermelho;
+                  color: #fff;
+                  padding: 6px 16px;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-weight: 600;
+                  transition: background 0.2s, transform 0.1s;
+
+                  &:hover,
+                  &:focus {
+                    background-color: darken($vermelho, 10%);
+                    transform: scale(1.05);
+                  }
+                }
       }
     }
   }
 }
 
-// Rodapé
 .rodape {
   height: 8vh;
   background-color: $bg-dark;
